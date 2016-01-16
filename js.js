@@ -35,6 +35,6 @@ window.onload = function() {
             hour.innerHTML = h + ":";
         }    
     };
-    setInterval(timer, 0);
+    setInterval(timer, 1000);
 };
 
