@@ -1,40 +1,18 @@
 
-window.onload = function() {
-    var seconds = document.getElementById("seconds");
-    var minutes = document.getElementById("minutes");
-    var hour = document.getElementById("hour");
-    var sec = 0;
-    var min = 0;
-    var h = 0;
+    var h1 = document.getElementsByTagName('h1')[0],
+    sec = 0, min = 0, h = 0;
     var timer = function() {
+        sec++;
         if (sec > 59) {
             sec = 0;
             min++;
-        }
-        if (min > 59) {
-            min = 0;
-            h++;
-        }
-        sec++;
-        if (sec < 10) {
-            seconds.innerHTML ='0'+sec;
-        }
-        else {
-            seconds.innerHTML =sec;
-        }
-        if (min < 10) {
-            minutes.innerHTML = '0' + min + ':';
-        }
-        else {
-            minutes.innerHTML = min + ':';
-        }
-        if (hour < 10) {
-            hour.innerHTML = '0' + h + ":";
-        }
-        else{
-            hour.innerHTML = h + ":";
-        }    
+            if (min > 59) {
+                min = 0;
+                h++;
+            }    
+       }
+        h1.textContent = (h ? (h > 9 ? h : "0" + h) : "00") + ":" + (min ? (min > 9 ? min : "0" + min) : "00") + ":" + (sec > 9 ? sec : "0" + sec);
     };
-    setInterval(timer, 1000);
-};
+    
+setInterval(timer, 1000);
 
